@@ -94,6 +94,7 @@ Then build the firmware with:
 #### Linux/WSL
 ```
 $ make -j$(nproc)
+$ make
 ```
 #### macOS
 ```
@@ -168,6 +169,11 @@ randconfig      : Generate a `.config` with random valid values to all configura
 
 ## Flashing
 Writing a new binary to the Crazyflie is called flashing (writing it to the flash memory). This page describes how to flash from the command line and there are a few different ways to do it.
+
+### Using USB Cable
+```
+$ dfu-util -d 0483:df11 -a 0 -s 0x08004000:leave -D cf2.bin 
+```
 
 ### Using Crazyradio
 
